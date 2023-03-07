@@ -19,7 +19,7 @@
               <th scope="row"><?=$key+1?></th>
               <td><?=$value['name']?></td>
               <td>
-                <a href="<?=$this->Url->build(["controller" => "Pages","action" => "edit"])?>">Update
+                <a href="<?=$this->Url->build(["controller" => "User","action" => "edit",$value['id']])?>">Update
                 </a> 
               </td>
               <td> <a href="<?=$this->Url->build(["controller" => "Pages","action" => "delete",$value['id']])?>"> Delete </a>

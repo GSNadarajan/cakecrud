@@ -21,6 +21,7 @@ use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
 use Cake\Datasource\ConnectionManager;
+use Cake\Network\Session;
 
 use Cake\View\Exception\MissingTemplateException;
 
@@ -86,16 +87,21 @@ class PagesController extends AppController
               'id' => $id,
               'name' => $name,
           ]);
+          $session = $this->request->getSession();
+          $session->write("profile_update","success");
+          $value = $admin_id = $session->read("profile_update");
+          echo $value;
          
           
           $this->set('result',$result);
          
         }
      }
+     
 
-     public function edit($req)
-     {
-        echo "edit";
+    //  public function edit($req)
+    //  {
+    //     echo "edit";
        
         // $connection = ConnectionManager::get('default');
 
@@ -109,15 +115,15 @@ class PagesController extends AppController
         // $updated_value = $connection->execute('SELECT * FROM crud WHERE id = :id', ['id' => $id])->fetchAll('assoc');
         // $this->set("id",$updated_value[0]['id']);
         // $this->set("name",$updated_value[0]['name']);
-     }
+    //  }
 
-     public function delete($id){
-        $connection = ConnectionManager::get('default');
-        $result = $connection->delete('cakecrud', ['id' => $id]);
-        // $fetch_all = $connection->execute('SELECT * FROM users_temp')->fetchAll('assoc');
-        // $this->set("results",$fetch_all);
+    //  public function delete($id){
+    //     $connection = ConnectionManager::get('default');
+    //     $result = $connection->delete('cakecrud', ['id' => $id]);
+    //     // $fetch_all = $connection->execute('SELECT * FROM users_temp')->fetchAll('assoc');
+    //     // $this->set("results",$fetch_all);
 
-     }
+    //  }
 
 
 }

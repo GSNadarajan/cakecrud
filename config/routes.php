@@ -54,7 +54,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
         $builder->connect('/add', ['controller' => 'Pages', 'action' =>'add']);
         // $builder->connect('/pages/edit', ['controller' => 'Pages', 'action' => 'edit']);
-        $builder->connect('/edit/:id', ['controller' => 'Pages', 'action' => 'edit']);
+        $builder->connect('/edit/:id', ['controller' => 'User', 'action' => 'edit']);
 
         $builder->connect('/pages/delete', ['controller' => 'Pages', 'action' => 'delete']);
 

@@ -20,12 +20,17 @@ if(isset($_POST['username'])){
         </div>
 
     <?php
+    // print_r($results);
+    $session = $this->request->getSession();
+    // $session->write("name",$results['name']);
+    $value = $session->read("name");
+    echo $value;
     }
     ?>
     
 <?php
    }
-   echo $this->Form->create(NULL,array('url'=>''.$id));
+   echo $this->Form->create(NULL,array('url'=>'/User/edit.php/'.$id));
    echo $this->Form->control('id',['id' => 'id'],'required');
    echo $this->Form->control('username',['id' => 'name'],'required');
    echo $this->Form->button('Update');
